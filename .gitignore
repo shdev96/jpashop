@@ -176,6 +176,7 @@ gradle-app.setting
 *.hprof
 
 *.bin
-build/
+build/test-results/test/binary/
+build/test-results/test/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,intellij+all,java

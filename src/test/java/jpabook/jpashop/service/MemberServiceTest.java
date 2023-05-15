@@ -25,9 +25,8 @@ class MemberServiceTest {
 
     @Test
     void register() throws Exception {
-        Member member = Member.builder()
-                .name("Admin")
-                .build();
+        Member member = new Member();
+        member.setName("admin");
 
         Long savedId = memberService.join(member);
 
@@ -36,13 +35,11 @@ class MemberServiceTest {
 
     @Test
     void duplicateRegister() throws Exception {
-        Member member = Member.builder()
-                .name("admin")
-                .build();
+        Member member = new Member();
+        member.setName("admin");
 
-        Member duplicateMember = Member.builder()
-                .name("admin")
-                .build();
+        Member duplicateMember = new Member();
+        duplicateMember.setName("admin");
 
         memberService.join(member);
         Assertions.assertThrows(IllegalStateException.class, () -> memberService.join(duplicateMember));
